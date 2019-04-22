@@ -1,0 +1,180 @@
+{
+  "students": [
+    {
+      "name": "Mahesh",
+      "categories": "0",
+      "documents": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "dob": "2019-04-02",
+      "fatherName": "Manmohan",
+      "motherName": "Madhu",
+      "lastClassScore": 99,
+      "id": 1
+    },
+    {
+      "name": "Rohit",
+      "categories": "1",
+      "documents": [
+        true,
+        true,
+        true,
+        false,
+        true,
+        true
+      ],
+      "dob": "2019-04-27",
+      "fatherName": "Ronit",
+      "motherName": "Pooja",
+      "lastClassScore": 89,
+      "id": 2
+    },
+    {
+      "name": "Deveesh",
+      "categories": "0",
+      "documents": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "dob": "2019-03-14",
+      "fatherName": "Bablu",
+      "motherName": "Poonam",
+      "lastClassScore": 100,
+      "id": 3
+    },
+    {
+      "name": "Harish",
+      "categories": "1",
+      "documents": [
+        true,
+        true,
+        true,
+        false,
+        false,
+        true
+      ],
+      "dob": "2019-02-04",
+      "fatherName": "Pulkit",
+      "motherName": "Shilpi",
+      "lastClassScore": 84,
+      "id": 4
+    },
+    {
+      "name": "Kunal",
+      "categories": "1",
+      "documents": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "dob": "2019-01-08",
+      "fatherName": "Brij",
+      "motherName": "Neelam",
+      "lastClassScore": 81,
+      "id": 5
+    },
+    {
+      "name": "Naresh",
+      "categories": "1",
+      "documents": [
+        true,
+        true,
+        true,
+        false,
+        false,
+        true
+      ],
+      "dob": "2019-02-06",
+      "fatherName": "Kunal",
+      "motherName": "Nonit",
+      "lastClassScore": 91,
+      "id": 6
+    }
+  ],
+  "categories": [
+    {
+      "id": 0,
+      "name": "International",
+      "documents": [
+        {
+          "name": "Domicile certificate",
+          "mandatory": true,
+          "submitted": false
+        },
+        {
+          "name": "Birth certificate",
+          "mandatory": true,
+          "submitted": false
+        },
+        {
+          "name": "Previous marksheets",
+          "mandatory": true,
+          "submitted": false
+        },
+        {
+          "name": "Police clearance",
+          "mandatory": true,
+          "submitted": false
+        },
+        {
+          "name": "Passport",
+          "mandatory": true,
+          "submitted": false
+        },
+        {
+          "name": "Signed declaration",
+          "mandatory": true,
+          "submitted": false
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "name": "Domestic",
+      "documents": [
+        {
+          "name": "Domicile certificate",
+          "mandatory": true,
+          "submitted": false
+        },
+        {
+          "name": "Birth certificate",
+          "mandatory": true,
+          "submitted": false
+        },
+        {
+          "name": "Previous marksheets",
+          "mandatory": true,
+          "submitted": false
+        },
+        {
+          "name": "Police clearance",
+          "mandatory": false,
+          "submitted": false
+        },
+        {
+          "name": "Passport",
+          "mandatory": false,
+          "submitted": false
+        },
+        {
+          "name": "Signed declaration",
+          "mandatory": true,
+          "submitted": false
+        }
+      ]
+    }
+  ]
+}

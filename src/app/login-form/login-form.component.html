@@ -1,0 +1,14 @@
+<div style="width: 40%; top:0; bottom: 0;left: 0; right: 0; margin: auto;">
+    <h3>Login school admin</h3>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onloginFormSubmit()">
+
+        <input class="form-control" placeholder="User name" formControlName="username">
+
+        <input class="form-control" placeholder="Password" type="password" formControlName="password">
+
+        <div style="color: red;">{{errorMessage}}</div>
+        <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary btn-sm">LOGIN</button>
+        <button type="button" (click)="resetForm()" class="btn btn-secondary btn-sm">RESET</button>
+    </form>
+</div>

@@ -1,0 +1,42 @@
+<h3>Student Details</h3>
+
+<div style="margin-bottom: 10px;">
+  <div style="text-align: left;">
+    <select [(ngModel)]="studentCategoryFilter">
+      <option value="all">All</option>
+      <option value="0">International</option>
+      <option value="1">Domestic</option>
+    </select>
+  </div>
+
+  <div style="text-align: right;">
+    <input [(ngModel)]="studentNameFilter" placeholder="Search student">
+  </div>
+</div>
+
+<div class="card-columns">
+  <div *ngFor="let Student of allStudents | filterStudents : studentNameFilter">
+    <div class="card" style="width: 18rem;"
+      *ngIf="studentCategoryFilter=='all' || Student.categories==studentCategoryFilter">
+
+      <div class="card-body" [ngClass]="{
+        'international' : Student.categories==0,
+        'domestic' : Student.categories==1
+           }">
+        <h5 class="card-title">{{'Student ' + Student.id}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{Student.name}}</h6>
+        <span class="card-text">
+          {{Student.name + ' is a '}}</span>
+        <span>{{Student.categories == 0 ? 'International student' : 'Domestic student'}}</span>
+        <span>{{' with his last score being ' + Student.lastClassScore}}</span>
+        <div></div>
+
+        <td><button type="button" (click)="sendStudentToEdit(Student.id)" class="btn btn-success btn-sm">Edit</button>
+        </td>
+        <td><button type="button" (click)="sendStudentToView(Student.id)" class="btn btn-secondary btn-sm">View</button>
+        </td>
+        <td><button type="button" (click)="deleteStudent(Student.id)" class="btn btn-danger btn-sm">Delete</button></td>
+      </div>
+    </div>
+  </div>
+</div>

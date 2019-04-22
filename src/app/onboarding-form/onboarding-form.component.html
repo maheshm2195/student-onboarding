@@ -1,0 +1,79 @@
+<div style="width: 40%; top:0; bottom: 0;left: 0; right: 0; margin: auto;">
+<h3>
+     Onboarding form <span *ngIf="actionToTake=='view'">(view)</span> <span *ngIf="actionToTake=='edit'">(edit)</span>
+</h3>
+<div>
+     <form [formGroup]="studentForm" (ngSubmit)="onStudentFormSubmit()">
+          <div class="form-group">
+               <label for="name">Student Name</label>
+               <input class="form-control" id="name" placeholder="Name" formControlName="name">
+          </div>
+
+          <div class="form-group">
+               <label for="categories">Category</label>
+
+               <select class="form-control" id="categories" formControlName="categories"
+                    [attr.disabled]="actionToTake=='view' ? '' : null" (change)="onCategoryChange($event.target.value)">
+                    <option *ngFor="let category of allCategories; let i=index" value={{i}}>
+                         {{category.name}}</option>
+               </select>
+
+          </div>
+
+          <div class="form-group">
+               <label for="documents">Documents</label>
+
+               <div formArrayName="documents" style="text-align: left;">
+                    <div *ngFor="let document of documents.controls; let i = index" class="row">
+                         <span class="col-sm-7">{{allDocuments[i].name}}</span>
+                         <span class="col-sm-1" *ngIf=allDocuments[i].mandatory>* </span>
+                         <span class="col-sm-1" *ngIf=!allDocuments[i].mandatory> </span>
+                         <span class="col-sm-4"><input [attr.disabled]="actionToTake=='view' ? '' : null"
+                                   type="checkbox" [formControlName]="i"></span>
+
+                    </div>
+               </div>
+          </div>
+
+          <div class="form-group">
+               <label for="dob">DOB</label>
+               <input class="form-control" id="dob" type="date" formControlName="dob">
+          </div>
+
+          <div class="form-group">
+               <label for="fatherName">Father's name</label>
+               <input class="form-control" id="fatherName" type="text" formControlName="fatherName" placeholder="Father's Name">
+          </div>
+
+          <div class="form-group">
+               <label for="fatherName">Mother's name</label>
+               <input class="form-control" type="text" formControlName="motherName" placeholder="Mother's Name">
+          </div>
+
+          <div class="form-group">
+               <label for="lastClassScore">Last class score</label>
+               <input class="form-control" id="lastClassScore" type="number" formControlName="lastClassScore" placeholder="%(marks)">
+          </div>
+
+          <button *ngIf="!studentIdToUpdate" [disabled]="!studentForm.valid || actionToTake=='view'" class="btn btn-primary">ON
+               BOARD</button>
+          <button *ngIf="studentIdToUpdate" [disabled]="!studentForm.valid || actionToTake=='view'" class="btn btn-primary">UPDATE</button>
+     </form>
+
+     <br />
+     <div style="color: green;" *ngIf="statusCode">
+          <div *ngIf="statusCode === 201" [ngClass]="'success'">
+               Student added successfully.
+          </div>
+          <div *ngIf="statusCode === 409" [ngClass]="'success'">
+               Student already exists.
+          </div>
+          <div *ngIf="statusCode === 200" [ngClass]="'success'">
+               Student updated successfully.
+          </div>
+          <div style="color: red;" *ngIf="statusCode === 500" [ngClass]="'error'">
+               Internal Server Error.
+          </div>
+     </div>
+</div>
+</div>
