@@ -8,7 +8,7 @@ import { OnboardingFormComponent } from '../app/onboarding-form/onboarding-form.
 import { OnboardedStudentsListComponent } from '../app/onboarded-students-list/onboarded-students-list.component'
 
 const routes: Routes = [
-  { path: '', redirectTo: 'onboarded-students', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginFormComponent },
   {
     path: 'logged', component: UserLoggedInComponent, canActivate: [LoginService],
